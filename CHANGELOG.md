@@ -1,3 +1,6 @@
+## [1.0.1] - 2019-11-03
+* Adds analysis_options.yaml
+
 ## [1.0.0] - 2019-11-03
 * Adds changelog
 
