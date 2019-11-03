@@ -1,7 +1,7 @@
 name: snapping_page_scroll
 description: A scrollable pageview with snapping
 version: 0.0.1
-author: Hannes Hultergård, Gotenburg Application Studio AB
+author: Hannes Hultergård <hannes.hultergard@gmail.com>
 homepage: gotapps.se
 
 environment:
