@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class SnappingPageScroll extends StatefulWidget {
 
-  const SnappingPageScroll({
+  SnappingPageScroll({
     Key key,
     @required this.children,
     this.onPageChanged,
