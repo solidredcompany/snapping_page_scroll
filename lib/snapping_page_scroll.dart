@@ -52,14 +52,16 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
       ///Get pointer (finger) position.
       onPointerMove: (PointerMoveEvent pos) {
         ///Runs if the time since the last scroll is undefined or over 100 milliseconds.
-        if (time == null || DateTime.now().millisecondsSinceEpoch - time > 100) {
+        if (time == null ||
+            DateTime.now().millisecondsSinceEpoch - time > 100) {
           time = DateTime.now().millisecondsSinceEpoch;
           position = pos.position.dx;
 
           ///The fingers x-coordinate.
         } else {
           ///Calculates scroll velocity.
-          final double v = (position - pos.position.dx) / (DateTime.now().millisecondsSinceEpoch - time);
+          final double v = (position - pos.position.dx) /
+              (DateTime.now().millisecondsSinceEpoch - time);
 
           ///If the scroll velocity is to low, the widget will scroll as a PageView widget with
           ///pageSnapping turned on.
@@ -68,7 +70,8 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
             //The velocity coefficient (v * velocity coefficient) can be increased to scroll faster,
             //and thus further before snapping.
             _pageController.animateToPage(_currentPage + (v * 1.2).round(),
-                duration: Duration(milliseconds: 800), curve: Curves.easeOutCubic);
+                duration: Duration(milliseconds: 800),
+                curve: Curves.easeOutCubic);
           }
         }
       },
@@ -80,6 +83,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
             setState(() {
               _currentPage = page;
             });
+
             ///onPageChanged will pass the current page to the widget if that parameter is used
             if (widget.onPageChanged != null) {
               widget.onPageChanged(page);
@@ -100,7 +104,8 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
 ///Used to remove scroll glow
 class CustomScroll extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
+  Widget buildViewportChrome(
+      BuildContext context, Widget child, AxisDirection axisDirection) {
     return child;
   }
 }
