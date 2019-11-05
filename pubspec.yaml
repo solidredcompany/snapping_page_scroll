@@ -2,10 +2,10 @@ name: snapping_page_scroll
 description: A scrollable pageview with snapping
 version: 1.0.1
 author: Hannes Hultergård <hannes.hultergard@gmail.com>
-homepage: https://gotapps.se
+homepage: https://github.com/Hannnes1/snapping_page_scroll
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
