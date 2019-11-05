@@ -1,3 +1,8 @@
+## [1.1.0] - 2019-11-03
+*Fixes problem where _currentPage didn't update
+*Adds example
+*Formatting
+
 ## [1.0.1] - 2019-11-03
 * Adds analysis_options.yaml
 
