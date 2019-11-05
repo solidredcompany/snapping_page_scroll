@@ -59,12 +59,15 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
   }
 
   Widget defaultIndicator(Color color) {
-    return Container(
-      height: 20,
-      width: 20,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: color,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(5, 30, 5, 0),
+      child: Container(
+        height: 20,
+        width: 20,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
+        ),
       ),
     );
   }
@@ -121,7 +124,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
             Visibility(
               visible: widget.showPageIndicator ?? 0,
               child: Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   for (int i = 0; i < widget.children.length; i++)
