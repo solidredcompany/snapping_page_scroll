@@ -1,3 +1,6 @@
+## [1.2.0] - 2019-11-03
+*Adds support for page indicator
+
 ## [1.1.0] - 2019-11-03
 *Fixes problem where _currentPage didn't update
 *Adds example
