@@ -90,8 +90,8 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
               (DateTime.now().millisecondsSinceEpoch - time);
 
           ///If the scroll velocity is to low, the widget will scroll as a PageView widget with
-          ///pageSnapping turned on.
-          if (v < -2 || v > 2) {
+          ///pageSnapping turned on. Same happens if v is to large.
+          if ((v < -2 || v > 2) && v != double.infinity) {
             ///Scrolls to a certain page based on the scroll velocity
             //The velocity coefficient (v * velocity coefficient) can be increased to scroll faster,
             //and thus further before snapping.
