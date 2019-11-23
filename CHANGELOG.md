@@ -1,3 +1,6 @@
+## [1.2.4] - 2019-11-23
+*Fixes README formatting
+
 ## [1.2.3] - 2019-11-23
 *Updates README
 
