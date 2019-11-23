@@ -1,3 +1,6 @@
+## [1.2.3] - 2019-11-23
+*Updates README
+
 ## [1.2.2] - 2019-11-09
 *Prevents NaN or Infinity error
 
