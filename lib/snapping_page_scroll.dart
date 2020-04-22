@@ -3,7 +3,7 @@ library snapping_page_scroll;
 import 'package:flutter/material.dart';
 
 class SnappingPageScroll extends StatefulWidget {
-  SnappingPageScroll({
+  const SnappingPageScroll({
     Key key,
     @required this.children,
     this.onPageChanged,
@@ -95,7 +95,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
             //The velocity coefficient (v * velocity coefficient) can be increased to scroll faster,
             //and thus further before snapping.
             _pageController.animateToPage(_currentPage + (v * 1.2).round(),
-                duration: Duration(milliseconds: 800), curve: Curves.easeOutCubic);
+                duration: const Duration(milliseconds: 800), curve: Curves.easeOutCubic);
           }
         }
       },

@@ -7,7 +7,7 @@ class App extends StatelessWidget {
 
   Widget customCard(String text){
     return Padding(
-      padding: EdgeInsets.fromLTRB(20, 100, 20, 100),
+      padding: const EdgeInsets.fromLTRB(20, 100, 20, 100),
       child: Card(
         child: Text(text),
       ),
