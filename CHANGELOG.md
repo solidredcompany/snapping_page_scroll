@@ -1,3 +1,8 @@
+## [1.2.6] - 2019-11-23
+*Update dependencies
+*Change github link
+*Reformat
+
 ## [1.2.5] - 2019-11-23
 *Fixes README formatting
 
