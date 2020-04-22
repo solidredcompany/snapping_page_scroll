@@ -4,8 +4,7 @@ import 'package:snapping_page_scroll/snapping_page_scroll.dart';
 void main() => runApp(App());
 
 class App extends StatelessWidget {
-
-  Widget customCard(String text){
+  Widget customCard(String text) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 100, 20, 100),
       child: Card(
