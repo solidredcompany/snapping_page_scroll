@@ -1,3 +1,6 @@
+## [1.2.7] - 2020-08-10
+*Change 0 to false
+
 ## [1.2.6] - 2019-11-23
 *Update dependencies
 *Change github link
