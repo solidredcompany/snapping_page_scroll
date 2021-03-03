@@ -1,3 +1,10 @@
+## [2.0.1] - 2021-03-03
+*Update changelog to match version
+*Format with dartfmt
+
+## [2.0.0] - 2021-03-03
+*Add support for nullsafety
+
 ## [1.2.7] - 2020-08-10
 *Change 0 to false
 
