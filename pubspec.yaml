@@ -1,10 +1,10 @@
 name: snapping_page_scroll
 description: A plugin that allows you to make a pageView that scrolls a certain number of pages based on the scroll velocity, and then snaps to the nearest page.
-version: 1.2.7
+version: 2.0.0
 homepage: https://github.com/Gothenburg-Application-Studio/snapping_page_scroll
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:

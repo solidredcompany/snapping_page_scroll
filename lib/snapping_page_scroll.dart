@@ -4,22 +4,22 @@ import 'package:flutter/material.dart';
 
 class SnappingPageScroll extends StatefulWidget {
   const SnappingPageScroll({
-    Key key,
-    @required this.children,
+    Key? key,
+    required this.children,
     this.onPageChanged,
-    this.initialPage,
-    this.scrollDirection,
-    this.showPageIndicator,
+    this.initialPage = 0,
+    this.scrollDirection = Axis.horizontal,
+    this.showPageIndicator = false,
     this.currentPageIndicator,
     this.otherPageIndicator,
-    this.viewportFraction,
+    this.viewportFraction = 1,
   }) : super(key: key);
 
   ///The pages that the widget will scroll between and snap to.
   final List<Widget> children;
 
   ///Called when the page changes.
-  final ValueChanged<int> onPageChanged;
+  final ValueChanged<int>? onPageChanged;
 
   ///Index of the page that is shown initially.
   final int initialPage;
@@ -31,10 +31,10 @@ class SnappingPageScroll extends StatefulWidget {
   final bool showPageIndicator;
 
   ///Widget to use as indicator for the page currently on screen.
-  final Widget currentPageIndicator;
+  final Widget? currentPageIndicator;
 
   ///Widget to use as indicator for the pages that not on screen.
-  final Widget otherPageIndicator;
+  final Widget? otherPageIndicator;
 
   ///With of page, where 1 is 100% of the screen.
   final double viewportFraction;
@@ -44,16 +44,16 @@ class SnappingPageScroll extends StatefulWidget {
 }
 
 class _SnappingPageScrollState extends State<SnappingPageScroll> {
-  PageController _pageController;
-  int time;
-  double position;
+  PageController? _pageController;
+  int? time;
+  late double position;
   int _currentPage = 0;
 
   @override
   void initState() {
     _pageController = PageController(
-      viewportFraction: widget.viewportFraction ?? 1,
-      initialPage: widget.initialPage ?? 0,
+      viewportFraction: widget.viewportFraction,
+      initialPage: widget.initialPage,
     );
     super.initState();
   }
@@ -78,14 +78,14 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
       ///Get pointer (finger) position.
       onPointerMove: (PointerMoveEvent pos) {
         ///Runs if the time since the last scroll is undefined or over 100 milliseconds.
-        if (time == null || DateTime.now().millisecondsSinceEpoch - time > 100) {
+        if (time == null || DateTime.now().millisecondsSinceEpoch - time! > 100) {
           time = DateTime.now().millisecondsSinceEpoch;
           position = pos.position.dx;
 
           ///The fingers x-coordinate.
         } else {
           ///Calculates scroll velocity.
-          final double v = (position - pos.position.dx) / (DateTime.now().millisecondsSinceEpoch - time);
+          final double v = (position - pos.position.dx) / (DateTime.now().millisecondsSinceEpoch - time!);
 
           ///If the scroll velocity is to low, the widget will scroll as a PageView widget with
           ///pageSnapping turned on.
@@ -93,7 +93,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
             ///Scrolls to a certain page based on the scroll velocity
             //The velocity coefficient (v * velocity coefficient) can be increased to scroll faster,
             //and thus further before snapping.
-            _pageController.animateToPage(_currentPage + (v * 1.2).round(),
+            _pageController!.animateToPage(_currentPage + (v * 1.2).round(),
                 duration: const Duration(milliseconds: 800), curve: Curves.easeOutCubic);
           }
         }
@@ -111,18 +111,18 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
 
                 ///onPageChanged will pass the current page to the widget if that parameter is used
                 if (widget.onPageChanged != null) {
-                  widget.onPageChanged(page);
+                  widget.onPageChanged!(page);
                 }
               },
               //BouncingScrollPhysics can't be used since that will scroll to far because of the animation
               physics: const ClampingScrollPhysics(),
 
               ///Scroll direction will default to horizontal unless otherwise is specified
-              scrollDirection: widget.scrollDirection ?? Axis.horizontal,
+              scrollDirection: widget.scrollDirection,
               children: widget.children,
             ),
             Visibility(
-              visible: widget.showPageIndicator ?? false,
+              visible: widget.showPageIndicator,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -142,7 +142,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
   }
 }
 
-///Used to remove scroll glow
+/// Used to remove scroll glow
 class CustomScroll extends ScrollBehavior {
   @override
   Widget buildViewportChrome(BuildContext context, Widget child, AxisDirection axisDirection) {
