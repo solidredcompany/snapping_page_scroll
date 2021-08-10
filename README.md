@@ -3,7 +3,9 @@ A plugin that acts similar to a `PageView` but either snaps to the closest page 
   
 If the user scrolls faster than a certain threshold, page snapping will be disabled until friction slows the velocity to below that threshold, leading to page snapping being enabled again.  
   
-If the user scrolls slower than the threshold, the widget will act like a regular `PageView` with `pageSnapping: true`  
+If the user scrolls slower than the threshold, the widget will act like a regular `PageView` with `pageSnapping: true`.
+
+<img src="https://i.imgur.com/29BZ9V7.gif" alt="GIF showing how the plugin works" height="500"/>
   
 ## Usage  
 To use this plugin, add `snapping_page_scroll` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).  
