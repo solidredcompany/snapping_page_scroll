@@ -1,3 +1,7 @@
+## [2.0.2] - 2021-08-10
+*Update readme with a gif showing the example
+*Update dependencies
+
 ## [2.0.1] - 2021-03-03
 *Update changelog to match version
 *Format with dartfmt
