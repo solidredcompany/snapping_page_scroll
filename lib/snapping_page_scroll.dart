@@ -13,6 +13,7 @@ class SnappingPageScroll extends StatefulWidget {
     this.currentPageIndicator,
     this.otherPageIndicator,
     this.viewportFraction = 1,
+    this.controller,
   }) : super(key: key);
 
   /// The pages that the widget will scroll between and snap to.
@@ -39,6 +40,9 @@ class SnappingPageScroll extends StatefulWidget {
   /// With of page, where 1 is 100% of the screen.
   final double viewportFraction;
 
+  /// Page controller to use if provided.
+  final PageController? controller;
+
   @override
   _SnappingPageScrollState createState() => _SnappingPageScrollState();
 }
@@ -51,10 +55,11 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
 
   @override
   void initState() {
-    _pageController = PageController(
-      viewportFraction: widget.viewportFraction,
-      initialPage: widget.initialPage,
-    );
+    _pageController = widget.controller ??
+        PageController(
+          viewportFraction: widget.viewportFraction,
+          initialPage: widget.initialPage,
+        );
     super.initState();
   }
 
