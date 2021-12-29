@@ -7,12 +7,12 @@ class SnappingPageScroll extends StatefulWidget {
     Key? key,
     required this.children,
     this.onPageChanged,
-    this.initialPage = 0,
+    @Deprecated('Use controller instead') this.initialPage = 0,
     this.scrollDirection = Axis.horizontal,
     this.showPageIndicator = false,
     this.currentPageIndicator,
     this.otherPageIndicator,
-    this.viewportFraction = 1,
+    @Deprecated('Use controller instead') this.viewportFraction = 1,
     this.controller,
   }) : super(key: key);
 
