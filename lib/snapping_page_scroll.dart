@@ -91,7 +91,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
           // The fingers x-coordinate.
         } else {
           ///Calculates scroll velocity.
-          final double v = (position - pos.position.dx) /
+          final v = (position - pos.position.dx) /
               (DateTime.now().millisecondsSinceEpoch - time!);
 
           // If the scroll velocity is to low, the widget will scroll as a PageView widget with
