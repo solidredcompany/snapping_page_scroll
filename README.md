@@ -19,15 +19,18 @@ import 'package:snapping_page_scroll/snapping_page_scroll.dart';
 void main() => runApp(App());
 
 class App extends StatelessWidget {
-
-  Widget customCard(String text){
+  Widget customCard(String text) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(20, 100, 20, 100),
+      padding: const EdgeInsets.fromLTRB(20, 100, 20, 100),
       child: Card(
         child: Text(text),
       ),
     );
   }
+
+  final controller = PageController(
+    viewportFraction: 0.75,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class App extends StatelessWidget {
         backgroundColor: Colors.amber,
         appBar: AppBar(),
         body: SnappingPageScroll(
-          viewportFraction: 0.75,
+          controller: controller,
           children: <Widget>[
             customCard('Card 1'),
             customCard('Card 2'),
@@ -49,5 +52,5 @@ class App extends StatelessWidget {
       ),
     );
   }
-}  
+}
 ```
