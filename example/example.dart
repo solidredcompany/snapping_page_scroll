@@ -13,6 +13,10 @@ class App extends StatelessWidget {
     );
   }
 
+  final controller = PageController(
+    viewportFraction: 0.75,
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +24,7 @@ class App extends StatelessWidget {
         backgroundColor: Colors.amber,
         appBar: AppBar(),
         body: SnappingPageScroll(
-          viewportFraction: 0.75,
+          controller: controller,
           children: <Widget>[
             customCard('Card 1'),
             customCard('Card 2'),
