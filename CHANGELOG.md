@@ -1,3 +1,9 @@
+## [3.0.0] - 2023-06-04
+
+* Update Dart SDK version range
+* **Breaking change:** Remove deprecated parameters `viewportFraction` and `initialPage` in favor of `controller`
+* **Breaking change:** Remove `CustomScrollView`. It is now up to the user to handle
+
 ## [2.1.0] - 2021-12-29
 
 * Add a `controller` parameter
