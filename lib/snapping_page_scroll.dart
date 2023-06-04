@@ -7,12 +7,10 @@ class SnappingPageScroll extends StatefulWidget {
     Key? key,
     required this.children,
     this.onPageChanged,
-    @Deprecated('Use controller instead') this.initialPage = 0,
     this.scrollDirection = Axis.horizontal,
     this.showPageIndicator = false,
     this.currentPageIndicator,
     this.otherPageIndicator,
-    @Deprecated('Use controller instead') this.viewportFraction = 1,
     this.controller,
   }) : super(key: key);
 
@@ -21,9 +19,6 @@ class SnappingPageScroll extends StatefulWidget {
 
   /// Called when the page changes.
   final ValueChanged<int>? onPageChanged;
-
-  /// Index of the page that is shown initially.
-  final int initialPage;
 
   /// The axis on which the pages is scrolled along.
   final Axis scrollDirection;
@@ -36,9 +31,6 @@ class SnappingPageScroll extends StatefulWidget {
 
   /// Widget to use as indicator for the pages that not on screen.
   final Widget? otherPageIndicator;
-
-  /// With of page, where 1 is 100% of the screen.
-  final double viewportFraction;
 
   /// Page controller to use if provided.
   final PageController? controller;
@@ -55,11 +47,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
 
   @override
   void initState() {
-    _pageController = widget.controller ??
-        PageController(
-          viewportFraction: widget.viewportFraction,
-          initialPage: widget.initialPage,
-        );
+    _pageController = widget.controller ?? PageController();
     super.initState();
   }
 
