@@ -97,7 +97,7 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
           // If the scroll velocity is to low, the widget will scroll as a PageView widget with
           // pageSnapping turned on.
           if ((v < -2 || v > 2) &&
-              !(v == double.nan ||
+              !(v.isNaN ||
                   v == double.infinity ||
                   v == double.negativeInfinity)) {
             // Scrolls to a certain page based on the scroll velocity
