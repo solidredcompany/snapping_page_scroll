@@ -109,57 +109,45 @@ class _SnappingPageScrollState extends State<SnappingPageScroll> {
           }
         }
       },
-      child: ScrollConfiguration(
-        behavior: CustomScroll(),
-        child: Stack(
-          children: <Widget>[
-            PageView(
-              controller: _pageController,
-              onPageChanged: (int page) {
-                setState(() {
-                  _currentPage = page;
-                });
+      child: Stack(
+        children: <Widget>[
+          PageView(
+            controller: _pageController,
+            onPageChanged: (int page) {
+              setState(() {
+                _currentPage = page;
+              });
 
-                // onPageChanged will pass the current page to the widget if that parameter is used.
-                if (widget.onPageChanged != null) {
-                  widget.onPageChanged!(page);
-                }
-              },
-              // BouncingScrollPhysics can't be used since that will scroll to far because of the animation.
-              physics: const ClampingScrollPhysics(),
+              // onPageChanged will pass the current page to the widget if that parameter is used.
+              if (widget.onPageChanged != null) {
+                widget.onPageChanged!(page);
+              }
+            },
+            // BouncingScrollPhysics can't be used since that will scroll to far because of the animation.
+            physics: const ClampingScrollPhysics(),
 
-              // Scroll direction will default to horizontal unless otherwise is specified.
-              scrollDirection: widget.scrollDirection,
-              children: widget.children,
+            // Scroll direction will default to horizontal unless otherwise is specified.
+            scrollDirection: widget.scrollDirection,
+            children: widget.children,
+          ),
+          Visibility(
+            visible: widget.showPageIndicator,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                // Builds one indicator for every page.
+                for (int i = 0; i < widget.children.length; i++)
+                  i == _currentPage
+                      ? (widget.currentPageIndicator ??
+                          defaultIndicator(Colors.white))
+                      : (widget.otherPageIndicator ??
+                          defaultIndicator(Colors.grey)),
+              ],
             ),
-            Visibility(
-              visible: widget.showPageIndicator,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  // Builds one indicator for every page.
-                  for (int i = 0; i < widget.children.length; i++)
-                    i == _currentPage
-                        ? (widget.currentPageIndicator ??
-                            defaultIndicator(Colors.white))
-                        : (widget.otherPageIndicator ??
-                            defaultIndicator(Colors.grey)),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
-  }
-}
-
-/// Custom scroll behaivior to remove scroll glow.
-class CustomScroll extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    return child;
   }
 }
