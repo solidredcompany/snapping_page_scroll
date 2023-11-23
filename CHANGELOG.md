@@ -1,3 +1,8 @@
+## [3.1.0] - 2023-11-23
+
+* Add builder constructor
+* Change lower dart SDK version to 2.17.0
+
 ## [3.0.0] - 2023-06-04
 
 * Update Dart SDK version range
